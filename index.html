@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vetrisudar - Premium Car Marketplace</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">VETRISUDAR</div>
+        <ul>
+            <li>Home</li>
+            <li>Buy Cars</li>
+            <li>Sell Your Car</li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+<div class="filter-box">
+    <select id="priceFilter">
+        <option value="all">All Prices</option>
+        <option value="under10">Under ?10 Lakhs</option>
+        <option value="10to20">?10 Lakhs - ?20 Lakhs</option>
+        <option value="over20">Over ?20 Lakhs</option>
+    </select>
+</div>
+        <h1>Find Your Dream Car</h1>
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search for brands (e.g., BMW, Thar)...">
+            <button id="searchBtn">Search</button>
+        </div>
+    </header>
+
+    <section class="sell-section">
+        <h2>Sell Your Car on Vetrisudar</h2>
+        <form id="sell-form">
+            <input type="text" id="carBrand" placeholder="Car Name (e.g. BMW X5)" required>
+            <input type="text" id="carPrice" placeholder="Price (e.g. ?8,00,000)" required>
+            <input type="number" id="carYear" placeholder="Year" required>
+            <button type="submit" id="postBtn">Post Ad</button>
+        </form>
+    </section>
+
+    <div class="listings" id="car-container"></div>
+
+    <script src="script.js"></script>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <h3>VETRISUDAR</h3>
+            <p>Your trusted partner for buying and selling cars in Tamil Nadu. Quality cars at the best prices.</p>
+        </div>
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+                <li>Buy Used Cars</li>
+                <li>Sell Your Car</li>
+                <li>Car Insurance</li>
+                <li>Contact Support</li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Follow Us</h3>
+            <p>Instagram | Facebook | Twitter</p>
+            <p>© 2026 Vetrisudar Pvt Ltd.</p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

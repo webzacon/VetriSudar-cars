@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vetrisudar - Car Details</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .details-page-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            padding: 40px 10%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .details-image-section {
+            flex: 1.5; /* Takes up more space */
+            min-width: 300px;
+        }
+        .details-image-section img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .details-info-section {
+            flex: 1; /* Sidebar style info */
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #e0e0e0;
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+        .back-btn {
+            display: inline-block;
+            margin: 20px 10%;
+            text-decoration: none;
+            color: #002f34;
+            font-weight: bold;
+        }
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .info-label { color: #7f8c8d; font-size: 0.9rem; }
+        .info-value { font-weight: 600; color: #333; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">VETRISUDAR</div>
+    </nav>
+    
+    <a href="index.html" class="back-btn"><b> Back to Listings</b></a>
+
+    <div class="details-page-container" id="details-content">
+        </div>
+
+    <script src="script.js"></script>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get('id');
+        const car = cars[id];
+
+        if(car) {
+            document.getElementById('details-content').innerHTML = `
+                <div class="details-image-section">
+                    <img src="${car.img}" onerror="this.src='https://via.placeholder.com/600x400'">
+                    <div style="margin-top:20px; padding:20px; background:#fff; border-radius:12px;">
+                        <h3>Description</h3>
+                        <p style="color:#555; line-height:1.6;">
+                            This ${car.brand} is in pristine condition. It has been meticulously maintained 
+                            at Vetrisudar service centers. Single owner, non-accidental, and with full service history.
+                        </p>
+                    </div>
+                </div>
+                <div class="details-info-section">
+                    <h1 style="margin:0; font-size:1.8rem;">${car.brand}</h1>
+                    <p style="font-size:2rem; font-weight:800; color:#002f34; margin:15px 0;">?${car.price}</p>
+                    
+                    <div class="info-row"><span class="info-label">Year</span><span class="info-value">${car.year}</span></div>
+                    <div class="info-row"><span class="info-label">Fuel Type</span><span class="info-value">Petrol/Diesel</span></div>
+                    <div class="info-row"><span class="info-label">Location</span><span class="info-value">&#8377;${car.loc}</span></div>
+                    <div class="info-row"><span class="info-label">Owner</span><span class="info-value">1st Owner</span></div>
+                    
+                    <a href="https://wa.me/919655693700?text=I'm interested in the ${car.brand}" class="whatsapp-btn" style="display:block; margin-top:30px;">
+                        Contact Seller
+                    </a>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
